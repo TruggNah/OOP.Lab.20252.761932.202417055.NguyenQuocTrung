@@ -4,7 +4,7 @@ public class CalculateTwoNumber {
     public static void main(String[] args) {
         String strNum1, strNum2;
         String strNotification = "Results:\n";
-        
+
         strNum1 = JOptionPane.showInputDialog(null,
                 "Please input the first number: ", "Input the first number",
                 JOptionPane.INFORMATION_MESSAGE);
