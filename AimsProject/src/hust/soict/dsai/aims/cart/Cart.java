@@ -1,3 +1,5 @@
+pakage hust.soict.dsai.aims.cart;
+
 public class Cart {
 
     public static final int MAX_NUMBERS_ORDERED = 20;
