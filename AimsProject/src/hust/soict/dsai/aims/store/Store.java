@@ -1,3 +1,5 @@
+pakage hust.soict.dsai.aims.store;
+
 public class Store {
 
     public static final int MAX_ITEMS_IN_STORE = 100;
