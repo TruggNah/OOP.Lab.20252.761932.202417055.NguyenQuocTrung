@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+My Answer:
+=======
+My Answer:
+>>>>>>> 0088b2f309d9d772e1cc0a1f61ca44a71985b779
+- Không, Java không cho phép điều này nếu cả hai constructor có cùng kiểu và số lượng tham số. Constructor overloading (nạp chồng constructor) yêu cầu danh sách tham số phải khác nhau (về số lượng hoặc kiểu dữ liệu), chứ không chỉ khác tên biến.
