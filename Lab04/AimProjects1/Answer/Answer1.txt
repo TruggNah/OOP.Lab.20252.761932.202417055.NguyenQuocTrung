@@ -1,0 +1,12 @@
+Câu 1: Lớp trừu tượng Media nên thực hiện (implement) Comparable<Media> để tất cả các lớp con (Book, DigitalVideoDisc, CompactDisc) kế thừa chung một phương thức so sánh tự nhiên (natural ordering).  
+Câu 2: Ta có thể chọn một trong hai quy tắc làm mặc định (ví dụ chọn Title trước rồi tới Cost). Triển khai hàm compareTo(Media other) trong lớp Media như sau:
+=============================================================================
+@Override
+public int compareTo(Media other) {
+    int titleDiff = this.getTitle().compareToIgnoreCase(other.getTitle());
+    if (titleDiff != 0) return titleDiff;
+    return Float.compare(other.getCost(), this.getCost());
+}
+=============================================================================
+Câu 3: Không bời vì Interface Comparable chỉ định nghĩa duy nhất một phương thức compareTo(), đại diện cho một thứ tự sắp xếp duy nhất và mặc định của đối tượng. Để có nhiều quy tắc sắp xếp linh hoạt đồng thời, việc sử dụng Comparator (như ta làm ở trên) là bắt buộc.  
+Câu 4: Trong hàm compare của Comparator (hoặc compareTo nếu kiểm tra kiểu), ta có thể sử dụng toán tử instanceof để kiểm tra xem đối tượng có phải là DigitalVideoDisc hay không. Nếu cả hai đối tượng đều là DVD, ta áp dụng thuật toán so sánh riêng: So sánh title và so sánh length (giảm dần) để so sánh 
