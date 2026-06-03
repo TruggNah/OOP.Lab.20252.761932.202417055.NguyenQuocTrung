@@ -1,0 +1,30 @@
+LAB 04 - ANSWERS:
+(?) Which classes are aggregates of other classes? Checking all constructors of whole classes if they
+    initialize for their parts?
+Cart and Store aggregate Media objects, while CompactDisc aggregates Track objects.
+Their constructors initialize the aggregation parts properly using ArrayList declarations/initializations.
+
+(?) Write constructors for parent and child classes. Remove redundant setter methods if any.
+
+Parent and child classes use constructors with super() to initialize inherited attributes.
+Some redundant setter methods such as setId() can be removed because IDs are initialized through constructors.
+The expected codes have been changed.
+
+(?) If the passing object is not an instance of Media, what happens?
+
+When overriding the equals() method, the Object parameter must be cast to the appropriate class type before comparing attributes.
+Therefore, we should first check whether the passing object is an instance of the expected class by using the instanceof operator.
+If the passing object is not an instance of Media, the method should return false.
+Otherwise, directly casting the object may cause a ClassCastException at runtime.
+This checking step helps ensure type safety and prevents invalid object comparisons.
+
+(?) Question in 12.
+- What class should implement the Comparable interface?
+- In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+- Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+
+-> The Media class should implement the Comparable<Media> interface because all media objects in the cart are stored and managed through the Media type.
+-> The compareTo() method should compare media objects according to the desired ordering rule. For example, it can first compare titles, and if the titles are equal, compare costs.
+-> No. Using Comparable only allows one default ordering rule for a class because a class can only have one compareTo() implementation. Therefore, it is not suitable when we need multiple sorting rules such as “title then cost” and “cost then title”.
+-> If DVDs require a different ordering rule, we should use Comparator instead of only Comparable. We can create a separate comparator for DVDs that compares by title, then decreasing length, then cost, while other media types continue using different comparators. This approach is more flexible and extensible.
